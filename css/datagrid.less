@@ -1,0 +1,110 @@
+div.datagrid {
+  width: 700px;
+  background-color: white;
+  border: 1px solid #d8d8d8;
+  min-height: 70%;
+
+  input {
+    width: 100%;
+    font-size: 14px;
+    height: 28px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: 1px solid #56A7D5;
+    padding-left: 5px;
+    background-color: #eee;
+  }
+
+  table {
+    width: 100%;
+    text-align: left;
+
+    th {
+      font-size: 12px;
+      padding: 20px 10px 10px 10px;
+
+      &.fixed {
+        width: 10px;
+      }
+
+      &:first-child {
+        padding-right: 0px;
+      }
+      &:last-child {
+        //text-align: center;
+        padding-right: 0px;
+      }
+      span.sort_ascending {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid black;
+        margin: 0 0 5px 10px;
+      }
+
+      span.sort_descending {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid black;
+        margin: 5px 0 0 10px;
+      }
+
+    }
+
+    tbody {
+      tr {
+
+        &:last-child {
+          border-bottom: none;
+          td {
+            border-bottom: none;
+
+          }
+        }
+        &:hover {
+          background-color: #ededed !important;
+        }
+
+        &.safe {
+
+          background-color: #F1F5EC;
+
+        }
+
+        td {
+
+          height: 28px;
+          padding: 10px 10px 10px 10px;
+          border-bottom: 1px solid #eee;
+
+          &:first-child {
+
+            border-bottom: none;
+            width: 10px;
+          }
+
+          &:last-child {
+            text-align: right;
+            padding-right: 0px;
+            border-bottom: none;
+            width: 10px;
+          }
+          &:nth-last-child(2) {
+            text-align: right;
+          }
+          &.state {
+            font-size: 12px;
+          }
+
+
+        }
+      }
+    }
+  }
+}
+

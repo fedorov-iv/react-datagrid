@@ -1,4 +1,4 @@
-var DataGrid = React.createClass({
+var DataGrid = React.createClass({displayName: "DataGrid",
     getInitialState: function () {
         return {
             items: [],
@@ -64,41 +64,41 @@ var DataGrid = React.createClass({
         if(this.state.has_previous){
             pagination.push(
 
-                <a href=''
+                React.createElement("a", {href: "", 
 
-                   onClick={function(e){e.preventDefault(); this.onPageChange(this.state.page_range[0])}.bind(this)}>
-                    &larr;
-                </a>
+                   onClick: function(e){e.preventDefault(); this.onPageChange(this.state.page_range[0])}.bind(this)}, 
+                    "←"
+                )
 
             );
         }
 
         for (var i = 0; i < this.state.page_range_trimmed.length; i++) {
             pagination.push(
-                <a key={i} href=''
-                   className={this.state.current_page == this.state.page_range_trimmed[i] ? 'active': ''}
-                   onClick={function(i, e){e.preventDefault(); this.onPageChange(this.state.page_range_trimmed[i])}.bind(this, i)}>
-                    {this.state.page_range_trimmed[i]}
-                </a>
+                React.createElement("a", {key: i, href: "", 
+                   className: this.state.current_page == this.state.page_range_trimmed[i] ? 'active': '', 
+                   onClick: function(i, e){e.preventDefault(); this.onPageChange(this.state.page_range_trimmed[i])}.bind(this, i)}, 
+                    this.state.page_range_trimmed[i]
+                )
             );
         }
 
          if(this.state.has_next){
             pagination.push(
 
-                <a href=''
+                React.createElement("a", {href: "", 
 
-                   onClick={function(e){e.preventDefault(); this.onPageChange(this.state.page_range[this.state.page_range.length - 1])}.bind(this)}>
-                    &rarr;
-                </a>
+                   onClick: function(e){e.preventDefault(); this.onPageChange(this.state.page_range[this.state.page_range.length - 1])}.bind(this)}, 
+                    "→"
+                )
 
             );
         }
 
         return (
-            <div className='paginator'>Страницы:
-                {pagination}
-            </div>
+            React.createElement("div", {className: "paginator"}, "Страницы:", 
+                pagination
+            )
         );
     },
 
@@ -108,15 +108,15 @@ var DataGrid = React.createClass({
 
         for (var i = 0; i < this.props.fields.length; i++) {
             tableCells.push(
-                <td key={i}>{item[this.props.fields[i].name]}</td>
+                React.createElement("td", {key: i}, item[this.props.fields[i].name])
             )
         }
 
-        return (<tr>
-            <td></td>
-            {tableCells}
-            <td></td>
-        </tr>);
+        return (React.createElement("tr", null, 
+            React.createElement("td", null), 
+            tableCells, 
+            React.createElement("td", null)
+        ));
     },
 
     renderTableHead: function () {
@@ -138,21 +138,21 @@ var DataGrid = React.createClass({
 
                 tableHead.push(
 
-                    <th key={i}>
-                        <a href='#' onClick={function(i, e){e.preventDefault(); this.onSortChange(this.props.fields[i].name)}.bind(this, i)}>
-                            {this.props.fields[i].display_name}
-                            <span className={sort_style}></span>
-                        </a>
+                    React.createElement("th", {key: i}, 
+                        React.createElement("a", {href: "#", onClick: function(i, e){e.preventDefault(); this.onSortChange(this.props.fields[i].name)}.bind(this, i)}, 
+                            this.props.fields[i].display_name, 
+                            React.createElement("span", {className: sort_style})
+                        )
 
-                    </th>
+                    )
                 );
             }else{
 
                  tableHead.push(
 
-                    <th key={i}>
-                        {this.props.fields[i].display_name}
-                    </th>
+                    React.createElement("th", {key: i}, 
+                        this.props.fields[i].display_name
+                    )
                 );
 
             }
@@ -173,21 +173,21 @@ var DataGrid = React.createClass({
 
         return (
 
-            <div>
-                <table>
-                    <thead>
-                    <tr>
-                        <th></th>
-                        {this.renderTableHead()}
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {this.state.items.map(this.renderItemRow)}
-                    </tbody>
-                </table>
-                {this.renderPaginator()}
-            </div>
+            React.createElement("div", null, 
+                React.createElement("table", null, 
+                    React.createElement("thead", null, 
+                    React.createElement("tr", null, 
+                        React.createElement("th", null), 
+                        this.renderTableHead(), 
+                        React.createElement("th", null)
+                    )
+                    ), 
+                    React.createElement("tbody", null, 
+                    this.state.items.map(this.renderItemRow)
+                    )
+                ), 
+                this.renderPaginator()
+            )
 
         );
     }

@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>React Datagrid Component</title>
+    <link rel="stylesheet" type="text/css" href="/css/datagrid.css" media="all">
 </head>
 <body>
+<div class="datagrid">Datagrid</div>
 
+<script>
+
+ $(document).ready(function() {
+
+                React.render(
+
+                        React.createElement(DataGrid, {
+                            sortable: ['id', 'created', 'amount'],
+                            sort_by: 'amount',
+                            fields: [
+                                {name: 'id', display_name: 'ID'},
+                                {name: 'created', display_name: 'Дата создания'},
+                                {name: 'amount', display_name: 'Сумма счета'},
+                                {name: 'current_state', display_name: 'Статус'}
+
+                            ],
+                            url: '/testgrid/list/',
+                            per_page : 10,
+                            styles:{
+                                sort_ascending: 'sort_ascending',
+                                sort_descending: 'sort_descending'
+                            }
+
+                        }),
+                        $('div.datagrid')[0]
+                );
+            });
+</script>
+<script src="js/datagrid.js"></script>
 </body>
 </html>
