@@ -64,10 +64,10 @@ var DataGrid = React.createClass({
         if(this.state.has_previous){
             pagination.push(
 
-                <li><a href=''
+                <li><a href='' aria-label='Previous'
 
                    onClick={function(e){e.preventDefault(); this.onPageChange(this.state.page_range[0])}.bind(this)}>
-                    &larr;
+                     <span aria-hidden="true">&laquo;</span>
                 </a></li>
 
             );
@@ -79,6 +79,7 @@ var DataGrid = React.createClass({
                    className={this.state.current_page == this.state.page_range_trimmed[i] ? 'active': ''}
                    onClick={function(i, e){e.preventDefault(); this.onPageChange(this.state.page_range_trimmed[i])}.bind(this, i)}>
                     {this.state.page_range_trimmed[i]}
+
                 </a></li>
             );
         }
@@ -86,11 +87,11 @@ var DataGrid = React.createClass({
          if(this.state.has_next){
             pagination.push(
 
-                <a href=''
+                <li><a href='' aria-label='Next'
 
                    onClick={function(e){e.preventDefault(); this.onPageChange(this.state.page_range[this.state.page_range.length - 1])}.bind(this)}>
-                    &rarr;
-                </a>
+                    <span aria-hidden="true">&raquo;</span>
+                </a></li>
 
             );
         }
@@ -174,7 +175,7 @@ var DataGrid = React.createClass({
         return (
 
             <div>
-                <table className="table">
+                <table className="table table-hover">
                     <thead>
                     <tr>
                         <th></th>

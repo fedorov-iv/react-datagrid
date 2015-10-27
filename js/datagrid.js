@@ -64,10 +64,10 @@ var DataGrid = React.createClass({displayName: "DataGrid",
         if(this.state.has_previous){
             pagination.push(
 
-                React.createElement("li", null, React.createElement("a", {href: "", 
+                React.createElement("li", null, React.createElement("a", {href: "", "aria-label": "Previous", 
 
                    onClick: function(e){e.preventDefault(); this.onPageChange(this.state.page_range[0])}.bind(this)}, 
-                    "←"
+                     React.createElement("span", {"aria-hidden": "true"}, "«")
                 ))
 
             );
@@ -79,6 +79,7 @@ var DataGrid = React.createClass({displayName: "DataGrid",
                    className: this.state.current_page == this.state.page_range_trimmed[i] ? 'active': '', 
                    onClick: function(i, e){e.preventDefault(); this.onPageChange(this.state.page_range_trimmed[i])}.bind(this, i)}, 
                     this.state.page_range_trimmed[i]
+
                 ))
             );
         }
@@ -86,11 +87,11 @@ var DataGrid = React.createClass({displayName: "DataGrid",
          if(this.state.has_next){
             pagination.push(
 
-                React.createElement("a", {href: "", 
+                React.createElement("li", null, React.createElement("a", {href: "", "aria-label": "Next", 
 
                    onClick: function(e){e.preventDefault(); this.onPageChange(this.state.page_range[this.state.page_range.length - 1])}.bind(this)}, 
-                    "→"
-                )
+                    React.createElement("span", {"aria-hidden": "true"}, "»")
+                ))
 
             );
         }
@@ -174,7 +175,7 @@ var DataGrid = React.createClass({displayName: "DataGrid",
         return (
 
             React.createElement("div", null, 
-                React.createElement("table", {className: "table"}, 
+                React.createElement("table", {className: "table table-hover"}, 
                     React.createElement("thead", null, 
                     React.createElement("tr", null, 
                         React.createElement("th", null), 
