@@ -64,22 +64,22 @@ var DataGrid = React.createClass({displayName: "DataGrid",
         if(this.state.has_previous){
             pagination.push(
 
-                React.createElement("a", {href: "", 
+                React.createElement("li", null, React.createElement("a", {href: "", 
 
                    onClick: function(e){e.preventDefault(); this.onPageChange(this.state.page_range[0])}.bind(this)}, 
                     "←"
-                )
+                ))
 
             );
         }
 
         for (var i = 0; i < this.state.page_range_trimmed.length; i++) {
             pagination.push(
-                React.createElement("a", {key: i, href: "", 
+                React.createElement("li", null, React.createElement("a", {key: i, href: "", 
                    className: this.state.current_page == this.state.page_range_trimmed[i] ? 'active': '', 
                    onClick: function(i, e){e.preventDefault(); this.onPageChange(this.state.page_range_trimmed[i])}.bind(this, i)}, 
                     this.state.page_range_trimmed[i]
-                )
+                ))
             );
         }
 
@@ -96,9 +96,9 @@ var DataGrid = React.createClass({displayName: "DataGrid",
         }
 
         return (
-            React.createElement("div", {className: "paginator"}, "Страницы:", 
-                pagination
-            )
+
+                {pagination}
+
         );
     },
 
@@ -174,7 +174,7 @@ var DataGrid = React.createClass({displayName: "DataGrid",
         return (
 
             React.createElement("div", null, 
-                React.createElement("table", null, 
+                React.createElement("table", {className: "table"}, 
                     React.createElement("thead", null, 
                     React.createElement("tr", null, 
                         React.createElement("th", null), 
@@ -186,7 +186,11 @@ var DataGrid = React.createClass({displayName: "DataGrid",
                     this.state.items.map(this.renderItemRow)
                     )
                 ), 
-                this.renderPaginator()
+                React.createElement("nav", null, 
+                    React.createElement("ul", {className: "pagination"}, 
+                        this.renderPaginator()
+                    )
+                )
             )
 
         );

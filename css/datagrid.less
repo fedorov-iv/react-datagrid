@@ -1,23 +1,14 @@
 div.datagrid {
   width: 700px;
-  background-color: white;
-  border: 1px solid #d8d8d8;
-  min-height: 70%;
 
-  input {
-    width: 100%;
-    font-size: 14px;
-    height: 28px;
-    box-sizing: border-box;
-    border-radius: 3px;
-    border: 1px solid #56A7D5;
-    padding-left: 5px;
-    background-color: #eee;
-  }
+
+
 
   table {
+    border-width: 0;
     width: 100%;
     text-align: left;
+    border-spacing: 0;
 
     th {
       font-size: 12px;
@@ -59,28 +50,13 @@ div.datagrid {
     tbody {
       tr {
 
-        &:last-child {
-          border-bottom: none;
-          td {
-            border-bottom: none;
 
-          }
-        }
-        &:hover {
-          background-color: #ededed !important;
-        }
-
-        &.safe {
-
-          background-color: #F1F5EC;
-
-        }
 
         td {
 
           height: 28px;
           padding: 10px 10px 10px 10px;
-          border-bottom: 1px solid #eee;
+
 
           &:first-child {
 
@@ -94,9 +70,7 @@ div.datagrid {
             border-bottom: none;
             width: 10px;
           }
-          &:nth-last-child(2) {
-            text-align: right;
-          }
+
           &.state {
             font-size: 12px;
           }

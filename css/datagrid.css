@@ -1,22 +1,11 @@
 div.datagrid {
   width: 700px;
-  background-color: white;
-  border: 1px solid #d8d8d8;
-  min-height: 70%;
-}
-div.datagrid input {
-  width: 100%;
-  font-size: 14px;
-  height: 28px;
-  box-sizing: border-box;
-  border-radius: 3px;
-  border: 1px solid #56A7D5;
-  padding-left: 5px;
-  background-color: #eee;
 }
 div.datagrid table {
+  border-width: 0;
   width: 100%;
   text-align: left;
+  border-spacing: 0;
 }
 div.datagrid table th {
   font-size: 12px;
@@ -49,22 +38,9 @@ div.datagrid table th span.sort_descending {
   border-top: 5px solid black;
   margin: 5px 0 0 10px;
 }
-div.datagrid table tbody tr:last-child {
-  border-bottom: none;
-}
-div.datagrid table tbody tr:last-child td {
-  border-bottom: none;
-}
-div.datagrid table tbody tr:hover {
-  background-color: #ededed !important;
-}
-div.datagrid table tbody tr.safe {
-  background-color: #F1F5EC;
-}
 div.datagrid table tbody tr td {
   height: 28px;
   padding: 10px 10px 10px 10px;
-  border-bottom: 1px solid #eee;
 }
 div.datagrid table tbody tr td:first-child {
   border-bottom: none;
@@ -75,9 +51,6 @@ div.datagrid table tbody tr td:last-child {
   padding-right: 0px;
   border-bottom: none;
   width: 10px;
-}
-div.datagrid table tbody tr td:nth-last-child(2) {
-  text-align: right;
 }
 div.datagrid table tbody tr td.state {
   font-size: 12px;
