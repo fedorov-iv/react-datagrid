@@ -18,8 +18,8 @@
                 React.render(
 
                         React.createElement(DataGrid, {
-                            sortable: ['id', 'created', 'amount'],
-                            sort_by: 'amount',
+                            sortable: ['id', 'created', 'amount'], // field names on which dynamic sorting will be supported
+                            sort_by: 'amount', // field name which will be used for default sorting
                             fields: [
                                 {name: 'id', display_name: 'ID'},
                                 {name: 'created', display_name: 'Created'},
@@ -27,11 +27,11 @@
                                 {name: 'current_state', display_name: 'State'}
 
                             ],
-                            url: 'data/invoices.txt',
-                            per_page : 10,
+                            url: 'data/invoices.txt', // url to be used as data source
+                            per_page : 10, // number of items shown on a single  page
                             styles:{
-                                sort_ascending: 'sort_ascending',
-                                sort_descending: 'sort_descending'
+                                sort_ascending: 'sort_ascending', // style for column chosen for sorting (ascending)
+                                sort_descending: 'sort_descending' // style for column chosen for sorting (descending)
                             }
 
                         }),
