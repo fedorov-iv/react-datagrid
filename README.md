@@ -43,7 +43,7 @@ See index.html
     
         def get(self, request, *args, **kwargs):
     
-            items_per_page = request.GET.get('per_page', 10)  # элементов на странице
+            items_per_page = request.GET.get('per_page', 10)  # items per page
             sort_by = request.GET.get('sort_by', 'id')
             items_list = Invoice.objects.all().order_by(sort_by)
             paginator = Paginator(items_list, items_per_page)
